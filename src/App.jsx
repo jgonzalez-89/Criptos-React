@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
 import ImageCripto from './img/criptos.png'
+import Formulario from './components/Formulario';
 
 const Contenedor = styled.div`
 background-image: radial-gradient(#3f4152 10%,#2d2f3b 70% );
@@ -29,6 +30,16 @@ const Heading = styled.h1`
   margin-top: 80px;
   margin-bottom: 50px;
   font-size: 34px;
+
+  &::after {
+    content: '';
+    width: 300px;
+    height: 2px;
+    background-color: #fadb84;
+    display: block;
+    margin: 10px auto 0 auto;
+
+  }
 `;
 
 
@@ -42,6 +53,7 @@ function App() {
         alt={'...'} />
       <div>
         <Heading>Cotizador de criptomonedas</Heading>
+        <Formulario />
       </div>
     </Contenedor>
 
