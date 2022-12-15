@@ -4,6 +4,7 @@ import Error from './Error'
 import useSelectMonedas from '../hooks/useSelectMonedas'
 import { monedas } from '../data/monedas'
 
+// Añadiendo Styled Componend al botón de Cotizar
 const InputSubmit = styled.input`
     background-color: #595e61;
     border: none;
@@ -20,6 +21,7 @@ const InputSubmit = styled.input`
         cursor: pointer;
     }
 `
+// Definiendo el componente Furmulario
 const Formulario = ({setMonedas}) => {
 
     const [criptos, setCriptos] = useState([])
@@ -27,6 +29,7 @@ const Formulario = ({setMonedas}) => {
     const [moneda, SelectMonedas] = useSelectMonedas('Elige tu Moneda', monedas)
     const [criptomoneda, SelectCriptomoneda] = useSelectMonedas('Elige tu Criptomoneda', criptos)
 
+    //Creando un useEffect para la respuesta de la API
     useEffect(() => {
         const consultarAPI = async () => {
             const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=20&tsym=USD"

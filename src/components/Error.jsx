@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+//Añadiendo Styled Component a Texto
 const Texto = styled.div`
     background-color: #933333;
     color: #fff;
@@ -11,6 +12,7 @@ const Texto = styled.div`
     font-weight: 700;
     text-align: center;
 `
+// Muestra un mensaje de Error si los campos no son requeridos.
 const Error = ({children}) => {
   return (
     <Texto>
