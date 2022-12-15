@@ -11,7 +11,6 @@ const Texto = styled.div`
     font-weight: 700;
     text-align: center;
 `
-
 const Error = ({children}) => {
   return (
     <Texto>

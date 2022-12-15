@@ -4,7 +4,6 @@ import Error from './Error'
 import useSelectMonedas from '../hooks/useSelectMonedas'
 import { monedas } from '../data/monedas'
 
-
 const InputSubmit = styled.input`
     background-color: #595e61;
     border: none;
@@ -22,12 +21,10 @@ const InputSubmit = styled.input`
     }
 
 `
-
 const Formulario = ({setMonedas}) => {
 
     const [criptos, setCriptos] = useState([])
     const [error, setError] = useState(false)
-
 
     const [moneda, SelectMonedas] = useSelectMonedas('Elige tu Moneda', monedas)
     const [criptomoneda, SelectCriptomoneda] = useSelectMonedas('Elige tu Criptomoneda', criptos)
@@ -45,9 +42,7 @@ const Formulario = ({setMonedas}) => {
                     nombre: cripto.CoinInfo.FullName
                 }
                 return objeto
-
             })
-
             setCriptos(arrayCriptos)
         }
         consultarAPI();
@@ -61,15 +56,12 @@ const Formulario = ({setMonedas}) => {
 
             return
         }
-
         setError(false)
         setMonedas({
             moneda,
             criptomoneda
         })
     }
-
-
 
     return (
 
@@ -81,8 +73,6 @@ const Formulario = ({setMonedas}) => {
                 <SelectMonedas />
 
                 <SelectCriptomoneda />
-
-
 
                 <InputSubmit type="submit" value="Cotizar" />
             </form>
