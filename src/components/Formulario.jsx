@@ -19,13 +19,11 @@ const InputSubmit = styled.input`
         background-color: #677d8d;
         cursor: pointer;
     }
-
 `
 const Formulario = ({setMonedas}) => {
 
     const [criptos, setCriptos] = useState([])
     const [error, setError] = useState(false)
-
     const [moneda, SelectMonedas] = useSelectMonedas('Elige tu Moneda', monedas)
     const [criptomoneda, SelectCriptomoneda] = useSelectMonedas('Elige tu Criptomoneda', criptos)
 
@@ -36,7 +34,6 @@ const Formulario = ({setMonedas}) => {
             const resultado = await respuesta.json()
 
             const arrayCriptos = resultado.Data.map(cripto => {
-
                 const objeto = {
                     id: cripto.CoinInfo.Name,
                     nombre: cripto.CoinInfo.FullName
@@ -71,9 +68,7 @@ const Formulario = ({setMonedas}) => {
                 onSubmit={handleSubmit}
             >
                 <SelectMonedas />
-
                 <SelectCriptomoneda />
-
                 <InputSubmit type="submit" value="Cotizar" />
             </form>
         </>
