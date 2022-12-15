@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import ImageCripto from './img/criptos.png'
 import Formulario from './components/Formulario';
+import Resultado from './components/Resultado';
 
 const Contenedor = styled.div`
 background-image: radial-gradient(#3f4152 10%,#2d2f3b 70% );
@@ -46,6 +47,8 @@ const Heading = styled.h1`
 function App() {
 
   const [monedas, setMonedas] = useState({})
+  const [resultado, setResultado] = useState({})
+  
 
   useEffect(()=>{
     if (Object.keys(monedas).length > 0){
@@ -56,7 +59,7 @@ function App() {
         const respuesta = await fetch(url)
         const resultado = await respuesta.json()
 
-        console.log(resultado.DISPLAY[criptomoneda][moneda])
+        setResultado(resultado.DISPLAY[criptomoneda][moneda])
       }
 
 
@@ -79,7 +82,7 @@ function App() {
         <Formulario 
           setMonedas={setMonedas}
         />
-
+        {resultado.PRICE && <Resultado resultado={resultado}/>}
       </div>
     </Contenedor>
 
